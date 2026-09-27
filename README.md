@@ -1,16 +1,21 @@
-# React + Vite
+# わたしの本棚
 
-This template provides a minimal setup to get React working in Vite with HMR and some Oxlint rules.
+## コンポーネント
 
-Currently, two official plugins are available:
+- `App`: 本のデータを管理し、一覧を表示します。
+- `BookCard`: 1冊分のタイトル、著者、評価、コメントを表示します。
 
-- [@vitejs/plugin-react](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react) uses [Oxc](https://oxc.rs)
-- [@vitejs/plugin-react-swc](https://github.com/vitejs/vite-plugin-react/blob/main/packages/plugin-react-swc) uses [SWC](https://swc.rs/)
+## BookCardに渡すprops
 
-## React Compiler
+- `title`: 文字列。書名です。
+- `author`: 文字列。著者名です。
+- `rating`: 数値。評価です。
+- `comment`: 文字列。本の感想です。
 
-The React Compiler is not enabled on this template because of its impact on dev & build performances. To add it, see [this documentation](https://react.dev/learn/react-compiler/installation).
+## key
 
-## Expanding the Oxlint configuration
+`map`で各本を表示するとき、`key`には本ごとに異なる`id`を使いました。`id`は一意で安定しているため、Reactがリスト内の項目を正しく識別できます。
 
-If you are developing a production application, we recommend using TypeScript with type-aware lint rules enabled. Check out the [TS template](https://github.com/vitejs/vite/tree/main/packages/create-vite/template-react-ts) for information on how to integrate TypeScript and Oxlint's TypeScript related rules in your project.
+## 詰まったところ
+
+`map`で表示する項目に`key`が必要だと分からず、各本に`id`を用意して`key={book.id}`を指定しました。
